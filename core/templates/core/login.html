@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block conteudo %}
+    <div class="container">
+        
+        <h1 class="h1 mt-5">Login</h1>
+        {% bootstrap_messages %}
+        
+        <form action="{% url 'login' %}" method="POST" autocomplete="off" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username">
+              </div>
+            <div class="form-group">
+              <label for="password">Senha</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>       
+    </div>
+
+
+    {% bootstrap_javascript jquery='full' %}
+{% endblock conteudo %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block conteudo %}
+    <div class="container mt-5">
+        <h1 class="h1 mb-5">Produtos</h1>
+        {% bootstrap_messages %}
+
+        {% for produto in produtos %}
+        <div class="card mt-3 mb-3" style="background: black;">
+            <img class="card-img-left" src="{{ produto.imagem.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title" style="color:white;">{{ produto.nome }}</h5>
+              <p class="card-text" style="color:white;">{{ produto.descricao }}</p>
+              <a href="#" class="btn btn-primary btn-block btn-lg" style="color: black; background: white;">ver mais</a>
+            </div>
+          </div>
+        {% endfor %}
+
+
+    </div>
+
+
+    {% bootstrap_javascript jquery='full' %}
+{% endblock conteudo %}

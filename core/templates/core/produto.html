@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block conteudo %}
+    <div class="container">
+        <h1>Produto</h1>
+        {% bootstrap_messages %}
+
+        <form enctype="multipart/form-data" action="{% url 'produto' %}" method="POST" class="form" autocomplete="off">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+
+            {% buttons %}
+            <button type="submit" class="btn btn-primary">Salvar produto</button>
+            {% endbuttons %}
+        </form>
+    </div>
+
+
+    {% bootstrap_javascript jquery='full' %}
+{% endblock conteudo %}
